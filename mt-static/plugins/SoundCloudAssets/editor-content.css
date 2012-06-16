@@ -1,0 +1,11 @@
+@media all {
+    mt\:soundcloud {
+        font-size: 0.9em;
+        background: #f5f5f5 url("../../plugins/SoundCloudAssets/play-button-medium2.png") no-repeat 10px;
+        border: 1px solid #e5e5e5;
+        padding: 10px;
+        padding-left: 52px;
+        margin: 0.7em 0 0.7em 0;
+        display: block;
+    }
+}

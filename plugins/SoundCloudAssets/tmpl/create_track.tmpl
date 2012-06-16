@@ -1,0 +1,140 @@
+<mt:setvar name="page_title" value="Add SoundCloud Track">
+
+<mt:setvarblock name="system_msg">
+    <mt:if name="invalid_track_url">
+        <mtapp:statusmsg
+            id="invalid_track_url"
+            class="error">This address doesn't seem to be a valid SoundCloud track URL.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error_permission_denied">
+        <mtapp:statusmsg
+            id="api_error_permission_denied"
+            class="error">SoundCloud API permission error: please check that your API account information is correct in the SoundCloud Assets plugin <a href="<mt:CGIPath><mt:AdminScript>?__mode=cfg_plugins" target="_top">settings</a>.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="error_unsupported_object_kind">
+        <mtapp:statusmsg
+            id="error_unsupported_object_kind"
+            class="error">This doesn't seem to be a SoundCloud track URL, is it a playlist/set one?
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="track_already_exists">
+        <mtapp:statusmsg
+            id="track_already_exists"
+            class="info">It looks like this track has already been imported &mdash; <a href='<mt:CGIPath><mt:AdminScript>?__mode=view&_type=asset&blog_id=<mt:var name="blog_id">&id=<mt:var name="original_asset_id">' target="_top">preview track</a>.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error">
+        <mtapp:statusmsg
+            id="api_error"
+            class="error">Something went wrong with a SoundCloud API query :(<br>Error message:<br><pre><mt:var name="api_error" escape="html"></pre>
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="error_track_not_found">
+        <mtapp:statusmsg
+            id="api_error_not_found"
+            class="error">This track couldn't be found on SoundCloud.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="error_track_not_available">
+        <mtapp:statusmsg
+            id="api_error_not_available"
+            class="error">This track is being processed by SoundCloud and couldn't be imported right now, please try again later.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error_service_unavailable">
+        <mtapp:statusmsg
+            id="api_error_service_unavailable"
+            class="error">SoundCloud API error: The service is temporarily unavailable.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="service_error">
+        <mtapp:statusmsg
+            id="service_error"
+            class="error">SoundCloud API error &mdash; please try again later.
+        </mtapp:statusmsg>
+    </mt:if>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<script type="text/javascript">
+TC.attachLoadEvent(function() {
+    var url = getByID("track_url");
+    if (url) {
+        url.focus();
+    }
+});
+</script>
+</mt:setvarblock>
+
+<mt:include name="dialog/header.tmpl">
+
+<mt:if name="invalid_plugin_config">
+
+<mtapp:statusmsg
+    id="invalid_plugin_config"
+    class="info">Please provide SoundCloud API account information in the SoundCloud Assets plugin <a href="<mt:CGIPath><mt:AdminScript>?__mode=cfg_plugins" target="_top">settings</a> to enable this feature.
+</mtapp:statusmsg>
+
+<div class="actions-bar">
+    <div class="actions-bar-inner pkg actions">
+    <button
+        onclick="closeDialog(); return false"
+        type="submit"
+        class="primary-button"
+        accesskey="x"
+        title="Close (x)">Close</button>
+    </div>
+</div>
+
+<mt:else>
+
+<$mt:var name="system_msg"$>
+
+<form method="post" action="<mt:var name="script_url">" name="soundcloud_track_create" id="soundcloud_track_create">
+    <input type="hidden" name="__mode" value="soundcloud_track_create" />
+    <input type="hidden" name="blog_id" value="<mt:var name="blog_id">" />
+    <input type="hidden" name="type" value="<mt:var name="type">" />
+    <input type="hidden" name="continue_args" value="<mt:var name="continue_args" escape="html">" />
+    <input type="hidden" name="no_insert" value="<mt:var name="no_insert" escape="html">" />
+    <input type="hidden" name="submit" value="1" />
+    <input type="hidden" name="magic_token" value="<mt:var name="magic_token">" />
+
+    <mtapp:setting
+        id="track_url"
+        label="Track URL"
+        label_class="top-label"
+        hint="SoundCloud track address, e.g. http://soundcloud.com/guau/destroyers-weird-day-guau-remix-elektroshok-records."
+        show_hint="1">
+        <input type="text" name="track_url" id="track_url" value="<mt:var name="track_url" escape="html">" style="width: 99%" />
+    </mtapp:setting>
+
+    <div class="actions-bar">
+        <div class="actions-bar-inner pkg actions">
+        <button
+            type="submit"
+            accesskey="a"
+            class="primary-button"
+            title="Add (a)">Add</button>
+        <button
+            onclick="closeDialog(); return false"
+            type="submit"
+            class="cancel"
+            accesskey="x"
+            title="Cancel (x)">Cancel</button>
+        </div>
+    </div>
+</form>
+
+</mt:if>
+
+<mt:include name="dialog/footer.tmpl">
