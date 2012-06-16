@@ -38,7 +38,7 @@ There are a few extra asset properties accessible in templates:
 
 * *soundcloud_track_id* - external track id
 * *soundcloud_track_permalink* - track URL path element, e.g. "my-song" (not the full URL)
-* *soundcloud_track_user_id * - track owner's id
+* *soundcloud_track_user_id* - track owner's id
 * *soundcloud_track_user_permalink* - track owner's URL path element
 * *soundcloud_track_user_name* - track owner's nickname
 
