@@ -9,7 +9,7 @@ SoundCloud Assets is a Movable Type plugin that allows to import and use SoundCl
 SoundCloud tracks work just like other Movable Type's assets and can be accessed via tags *Asset*, *Assets*, *EntryAssets* and *PageAssets*:
 
     <mt:EntryAssets>
-    <mt:if tag="AssetType" eq="soundcloud_track">
+    <mt:if tag="AssetType" eq="soundcloud track">
         <div>
         <strong><mt:AssetLabel escape="html"></strong>
         <p><mt:AssetDescription escape="html"></p>
