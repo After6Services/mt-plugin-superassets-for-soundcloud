@@ -20,7 +20,7 @@ SoundCloud tracks work just like other Movable Type's assets and can be accessed
 
 Tracks can be filtered by class name:
 
-    <mt:Assets class="soundcloud_track" lastn="1">
+    <mt:Assets type="soundcloud_track" lastn="1">
     ...
     </mt:Assets>
 
