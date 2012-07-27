@@ -1,13 +1,13 @@
 name: SoundCloud Assets
 id: soundcloudassets
 description: Import and use SoundCloud tracks as native MT assets.
-author_name: Arseni Mouchinski for After6 Services
-author_email: arseni@mouchinski.com
-author_link: http://github.com/amouchinski
+author_name: After6 Services LLC
+author_email: customer.service@after6services.com
+author_link: http://github.com/After6Services
 doc_link: http://github.com/After6Services/mt-plugin-soundcloud-assets
 icon: plugin_icon.png
 
-version: 0.3
+version: 0.4
 schema_version: 0.1
 
 object_types:
