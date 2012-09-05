@@ -7,7 +7,7 @@ author_link: http://github.com/After6Services
 doc_link: http://github.com/After6Services/mt-plugin-soundcloud-assets
 icon: plugin_icon.png
 
-version: 0.4
+version: 0.4bc1
 schema_version: 0.1
 
 object_types:
