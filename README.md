@@ -1,6 +1,6 @@
-# SoundCloud Assets
+# SoundCloudAssets
 
-SoundCloud Assets is a Movable Type plugin that allows users to import and use SoundCloud tracks as native assets in the Movable Type Asset Manager.  It is part of the SuperAssets series of plugins from After6 Services LLC.
+SoundCloudAssets is a Movable Type plugin that allows users to import and use SoundCloud tracks as native assets in the Movable Type Asset Manager.  It is part of the SuperAssets series of plugins from After6 Services LLC.
 
 # Installation
 
@@ -75,11 +75,11 @@ Although After6 Services LLC has developed this plugin, After6 only provides sup
 
 # License
 
-This plugin is licensed under The BSD 2-Clause License, http://www.opensource.org/licenses/bsd-license.php.  See LICENSE.md for the exact license.
+This plugin is licensed under the MIT License which some people also refer to as the Expat License, http://opensource.org/licenses/mit-license.php.  See LICENSE.md for the exact license.
 
 # Authorship
 
-SoundCloud Assets was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.
+SoundCloudAssets was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.
 
 # Copyright
 
