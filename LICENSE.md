@@ -1,4 +1,6 @@
 # SuperAssets for SoundCloud
+## https://github.com/After6Services/mt-plugin-superassets-for-soundcloud
+### [The MIT License](http://opensource.org/licenses/MIT)
 
 Copyright &copy; 2012-2013, [After6 Services LLC](http://www.after6services.com/).  All rights reserved.
 

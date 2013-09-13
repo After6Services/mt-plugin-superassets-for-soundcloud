@@ -7,7 +7,7 @@ use base 'MT::Asset';
 
 require MT;
 require MT::Util;
-use SoundCloudAssets::Util qw(:all);
+use SuperAssetsForSoundCloud::Util qw(:all);
 
 __PACKAGE__->install_properties({
     class_type  => 'soundcloud_track',
