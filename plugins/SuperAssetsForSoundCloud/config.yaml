@@ -1,0 +1,48 @@
+name: SuperAssets for SoundCloud
+id: superassetsforsoundcloud
+description: Import and use SoundCloud tracks as native MT assets.
+author_name: After6 Services LLC
+author_email: customer.service@after6services.com
+author_link: http://www.after6services.com/plugins/
+doc_link: http://github.com/After6Services/mt-plugin-superassets-for-soundcloud
+icon: plugin_icon.png
+
+version: 1.0
+schema_version: 0.1
+
+object_types:
+    asset.soundcloud_track: MT::Asset::SoundCloudTrack
+
+settings:
+    api_client_id:
+        scope: system
+        default: ""
+
+system_config_template: system_config.tmpl
+
+applications:
+    cms:
+        menus:
+            create:soundcloud_track:
+                label: SoundCloud Track
+                order: 330
+                dialog: soundcloud_track_create
+                view: blog
+                permission: upload
+
+        methods:
+            soundcloud_track_create: $SuperAssetsForSoundCloud::SuperAssetsForSoundCloud::CMS::create_track
+
+        callbacks:
+            post_init: $SuperAssetsForSoundCloud::SuperAssetsForSoundCloud::Util::post_init
+            template_source.asset_insert: $SoundCloudAssets::SuperAssetsForSoundCloud::CMS::asset_insert_source
+            template_source.archetype_editor: $SoundCloudAssets::SuperAssetsForSoundCloud::CMS::editor_source
+            template_param.edit_entry: $SoundCloudAssets::SuperAssetsForSoundCloud::CMS::edit_entry_param
+            template_source.asset_list: $SoundCloudAssets::SuperAssetsForSoundCloud::CMS::asset_list_source
+
+text_filters:
+    embed_soundcloud_tracks:
+        label: SoundCloud Tracks
+        condition: >-
+            sub { 0 }
+        handler: $SuperAssetsForSoundCloud::SuperAssetsForSoundCloud::Util::embed_filter

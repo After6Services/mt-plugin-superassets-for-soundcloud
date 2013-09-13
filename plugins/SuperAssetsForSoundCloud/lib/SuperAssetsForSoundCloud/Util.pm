@@ -1,4 +1,4 @@
-package SoundCloudAssets::Util;
+package SuperAssetsForSoundCloud::Util;
 
 use strict;
 use warnings;
@@ -74,7 +74,7 @@ sub embed_track {
 }
 
 sub plugin {
-    return MT->component("SoundCloudAssets");
+    return MT->component("SuperAssetsForSoundCloud");
 }
 
 1;

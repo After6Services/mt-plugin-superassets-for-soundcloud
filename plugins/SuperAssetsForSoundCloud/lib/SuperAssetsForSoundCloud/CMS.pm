@@ -1,11 +1,11 @@
-package SoundCloudAssets::CMS;
+package SuperAssetsForSoundCloud::CMS;
 
 use strict;
 use warnings;
 
 require MT;
 require MT::Asset::SoundCloudTrack;
-use SoundCloudAssets::Util qw(:all);
+use SuperAssetsForSoundCloud::Util qw(:all);
 use Encode;
 require CGI;
 
@@ -214,7 +214,7 @@ sub editor_source {
     # adding some css
     $$tmpl .= q{
         <mt:setvarblock name="html_head" append="1">
-        <link rel="stylesheet" type="text/css" href="<mt:var name="static_uri">plugins/SoundCloudAssets/editor.css" />
+        <link rel="stylesheet" type="text/css" href="<mt:var name="static_uri">plugins/SuperAssetsForSoundCloud/editor.css" />
         </mt:setvarblock>
     };
 
@@ -235,7 +235,7 @@ TC.attachLoadEvent(function() {
         var css = idoc.createElement('link');
         css.type = 'text/css';
         css.rel = 'stylesheet';
-        css.href = '<mt:var name="static_uri">plugins/SoundCloudAssets/editor-content.css';
+        css.href = '<mt:var name="static_uri">plugins/SuperAssetsForSoundCloud/editor-content.css';
         idoc.getElementsByTagName('head')[0].appendChild(css);
     }, 200);
 });
